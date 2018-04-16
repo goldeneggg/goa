@@ -687,7 +687,7 @@ definitions:
         maximum: 2020
       winery:
         schema: ""
-        $ref: '#/definitions/Winery'
+        $ref: '#/definitions/WineryTiny'
     description: ShowResponseBody result type (default view)
     example:
       composition:
@@ -702,10 +702,7 @@ definitions:
       rating: 3
       vintage: 2005
       winery:
-        country: USA
         name: Longoria
-        region: Central Coast, California
-        url: http://www.longoriawine.com/
     required:
     - id
     - name
@@ -766,7 +763,7 @@ definitions:
         maximum: 2020
       winery:
         schema: ""
-        $ref: '#/definitions/WineryResponseBody'
+        $ref: '#/definitions/WineryResponseBodyTiny'
     description: A StoredBottle describes a bottle retrieved by the storage service.
       (default view)
     example:
@@ -784,10 +781,7 @@ definitions:
       rating: 3
       vintage: 1924
       winery:
-        country: USA
         name: Longoria
-        region: Central Coast, California
-        url: http://www.longoriawine.com/
     required:
     - id
     - name
@@ -899,43 +893,6 @@ definitions:
       name: Blue's Cuvee
       winery:
         name: Longoria
-  Winery:
-    schema: ""
-    title: 'Mediatype identifier: winery; view=default'
-    type: object
-    properties:
-      country:
-        schema: ""
-        type: string
-        description: Country of winery
-        example: USA
-        pattern: (?i)[a-z '\.]+
-      name:
-        schema: ""
-        type: string
-        description: Name of winery
-        example: Longoria
-      region:
-        schema: ""
-        type: string
-        description: Region of winery
-        example: Central Coast, California
-        pattern: (?i)[a-z '\.]+
-      url:
-        schema: ""
-        type: string
-        description: Winery website URL
-        example: http://www.longoriawine.com/
-        pattern: (?i)^(https?|ftp)://[^\s/$.?#].[^\s]*$
-    example:
-      country: USA
-      name: Longoria
-      region: Central Coast, California
-      url: http://www.longoriawine.com/
-    required:
-    - name
-    - region
-    - country
   WineryRequestBody:
     schema: ""
     title: 'Mediatype identifier: winery; view=default'
@@ -974,43 +931,6 @@ definitions:
     - name
     - region
     - country
-  WineryResponseBody:
-    schema: ""
-    title: 'Mediatype identifier: winery; view=default'
-    type: object
-    properties:
-      country:
-        schema: ""
-        type: string
-        description: Country of winery
-        example: USA
-        pattern: (?i)[a-z '\.]+
-      name:
-        schema: ""
-        type: string
-        description: Name of winery
-        example: Longoria
-      region:
-        schema: ""
-        type: string
-        description: Region of winery
-        example: Central Coast, California
-        pattern: (?i)[a-z '\.]+
-      url:
-        schema: ""
-        type: string
-        description: Winery website URL
-        example: http://www.longoriawine.com/
-        pattern: (?i)^(https?|ftp)://[^\s/$.?#].[^\s]*$
-    example:
-      country: USA
-      name: Longoria
-      region: Central Coast, California
-      url: http://www.longoriawine.com/
-    required:
-    - name
-    - region
-    - country
   WineryResponseBodyTiny:
     schema: ""
     title: 'Mediatype identifier: '
@@ -1022,6 +942,21 @@ definitions:
         description: Name of winery
         example: Longoria
     description: WineryResponseBodyTiny result type (default view) (default view)
+    example:
+      name: Longoria
+    required:
+    - name
+  WineryTiny:
+    schema: ""
+    title: 'Mediatype identifier: '
+    type: object
+    properties:
+      name:
+        schema: ""
+        type: string
+        description: Name of winery
+        example: Longoria
+    description: WineryTiny result type (default view) (default view)
     example:
       name: Longoria
     required:
