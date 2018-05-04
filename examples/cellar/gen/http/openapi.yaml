@@ -359,30 +359,6 @@ definitions:
     - name
     - winery
     - vintage
-  Component:
-    schema: ""
-    title: Component
-    type: object
-    properties:
-      percentage:
-        schema: ""
-        type: integer
-        description: Percentage of varietal in wine
-        example: 23
-        minimum: 1
-        maximum: 100
-      varietal:
-        schema: ""
-        type: string
-        description: Grape varietal
-        example: Syrah
-        pattern: '[A-Za-z'' ]+'
-        maxLength: 100
-    example:
-      percentage: 77
-      varietal: Syrah
-    required:
-    - varietal
   ComponentRequestBody:
     schema: ""
     title: ComponentRequestBody
@@ -621,7 +597,7 @@ definitions:
         schema: ""
         type: string
         description: ID of missing bottle
-        example: Exercitationem alias est dolores.
+        example: Delectus quas exercitationem alias est dolores non.
       message:
         schema: ""
         type: string
@@ -629,7 +605,7 @@ definitions:
         example: bottle 1 not found
     description: Bottle not found
     example:
-      id: Exercitationem ducimus expedita in quam eos distinctio.
+      id: Ducimus expedita in quam eos distinctio.
       message: bottle 1 not found
     required:
     - message
@@ -644,14 +620,12 @@ definitions:
         type: array
         items:
           schema: ""
-          $ref: '#/definitions/Component'
+          $ref: '#/definitions/ComponentResponseBody'
         description: Composition is the list of grape varietals and associated percentage.
         example:
-        - percentage: 86
+        - percentage: 82
           varietal: Syrah
-        - percentage: 86
-          varietal: Syrah
-        - percentage: 86
+        - percentage: 82
           varietal: Syrah
       description:
         schema: ""
@@ -675,7 +649,7 @@ definitions:
         schema: ""
         type: integer
         description: Rating of bottle from 1 (worst) to 5 (best)
-        example: 2
+        example: 3
         minimum: 1
         maximum: 5
       vintage:
@@ -687,20 +661,20 @@ definitions:
         maximum: 2020
       winery:
         schema: ""
-        $ref: '#/definitions/WineryTiny'
+        $ref: '#/definitions/WineryResponseBodyTiny'
     description: ShowResponseBody result type (default view)
     example:
       composition:
-      - percentage: 86
+      - percentage: 82
         varietal: Syrah
-      - percentage: 86
+      - percentage: 82
         varietal: Syrah
       description: Red wine blend with an emphasis on the Cabernet Franc grape and
         including other Bordeaux grape varietals and some Syrah
       id: 123abc
       name: Blue's Cuvee
-      rating: 3
-      vintage: 2005
+      rating: 2
+      vintage: 1998
       winery:
         name: Longoria
     required:
@@ -763,7 +737,7 @@ definitions:
         maximum: 2020
       winery:
         schema: ""
-        $ref: '#/definitions/WineryResponseBodyTiny'
+        $ref: '#/definitions/WineryResponseBodyTinyTiny'
     description: A StoredBottle describes a bottle retrieved by the storage service.
       (default view)
     example:
@@ -813,10 +787,7 @@ definitions:
       rating: 2
       vintage: 1963
       winery:
-        country: USA
         name: Longoria
-        region: Central Coast, California
-        url: http://www.longoriawine.com/
     - composition:
       - percentage: 82
         varietal: Syrah
@@ -833,10 +804,7 @@ definitions:
       rating: 2
       vintage: 1963
       winery:
-        country: USA
         name: Longoria
-        region: Central Coast, California
-        url: http://www.longoriawine.com/
   StoredBottleResponseBodyTiny:
     schema: ""
     title: 'Mediatype identifier: '
@@ -855,7 +823,7 @@ definitions:
         maxLength: 100
       winery:
         schema: ""
-        $ref: '#/definitions/WineryResponseBodyTiny'
+        $ref: '#/definitions/WineryResponseBodyTinyTiny'
     description: A StoredBottle describes a bottle retrieved by the storage service.
       (tiny view) (default view) (default view) (default view)
     example:
@@ -946,7 +914,7 @@ definitions:
       name: Longoria
     required:
     - name
-  WineryTiny:
+  WineryResponseBodyTinyTiny:
     schema: ""
     title: 'Mediatype identifier: '
     type: object
@@ -956,7 +924,7 @@ definitions:
         type: string
         description: Name of winery
         example: Longoria
-    description: WineryTiny result type (default view) (default view)
+    description: WineryResponseBodyTinyTiny result type (default view) (default view)
     example:
       name: Longoria
     required:
